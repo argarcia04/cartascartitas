@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta protegida</title>
+  <style>
+  body {
+    background-color: #e3edf7; /* azul pastel nublado */
+    font-family: 'Georgia', serif;
+    color: #2d3e50; /* azul grisáceo suave */
+    padding: 30px;
+    margin: 0;
+  }
+
+  .carta, .acceso {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin: 100px auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .paloma {
+    width: 50px;
+    position: absolute;
+    top: 50px;
+    left: -60px;
+    animation: volar 10s linear infinite;
+  }
+
+  @keyframes volar {
+    0% { left: -60px; top: 50px; opacity: 0; }
+    20% { opacity: 1; }
+    50% { top: 80px; }
+    100% { left: 110%; top: 60px; opacity: 0; }
+  }
+
+  .imagen-abrazo {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .firma {
+    margin-top: 40px;
+    font-style: italic;
+    text-align: right;
+    color: #4a6572;
+  }
+
+  input[type="password"] {
+    padding: 10px;
+    width: 80%;
+    margin-top: 10px;
+    font-size: 1em;
+    border: 1px solid #aacbe1;
+    border-radius: 6px;
+    background-color: #f0f6fa;
+    color: #2d3e50;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #9dc9e2;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #7bb3ce;
+  }
+
+  .pista {
+    margin-top: 10px;
+    font-style: italic;
+    color: #6b7f94;
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- Paloma animada -->
+  <img src="https://cdn-icons-gif.flaticon.com/18996/18996432.gif" alt="Paloma volando" class="paloma">
+
+  <!-- Pantalla de acceso -->
+  <div class="acceso" id="pantalla-acceso">
+    <h2>💌 Carta privada para Dianeth 💌</h2>
+    <p>Amor introduce la contraseña para ver esto.</p>
+    <input type="password" id="clave" placeholder="Contraseña">
+    <button onclick="verificarClave()">Acceder</button>
+    <div class="pista">Pista: nuestro inicio(la fecha)</div>
+  </div>
+
+  <!-- Carta oculta -->
+  <div class="carta" id="contenido-carta" style="display:none;">
+    <h1>Estoy contigo, mi amor 🕊️</h1>
+    <p>
+      Se que todo lo que estas pasando no es facil, se que es duro sin embargo eres tan fuerte , quiero que sepas que estoy aquí para ti.
+    </p>
+    <p>
+      Te abrazo con el alma, con el corazón, y con todo mi ser. No estás sola. Cada lágrima tuya la siento en mi pecho, y cada silencio lo lleno con amor y compañía.
+    </p>
+    <p>
+      Quiero amarte en todo los momento, en la salud y en la enfermedad, en la alegria y en la tristeza,.
+    </p>
+    <p>
+      eres mi sol, mi luz, mis estrellas, mi mañana, mi tarde y mi noche, te envio un abrazo y un beso mi vida.
+    </p>
+    <p>
+      Estoy contigo hoy y siempre. 💗
+    </p>
+
+    <img src="https://i.pinimg.com/originals/82/b6/10/82b610b3d66adca35ad33cebc8b37722.jpg" alt="Abrazo simbólico" class="imagen-abrazo">
+
+    <div class="firma">
+      Con todo mi amor y apoyo,<br>
+      [Magno]
+    </div>
+  </div>
+
+  <script>
+    function verificarClave() {
+      const claveIngresada = document.getElementById('clave').value.trim().toLowerCase();
+      if (claveIngresada === '3demayo') {
+        document.getElementById('pantalla-acceso').style.display = 'none';
+        document.getElementById('contenido-carta').style.display = 'block';
+      } else {
+        alert('❌ Clave incorrecta. Intenta nuevamente.');
+      }
+    }
+  </script>
+
+</body>
+</html>
